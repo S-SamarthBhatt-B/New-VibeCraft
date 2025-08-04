@@ -1,0 +1,317 @@
+/* === VibeCraft Home Page Theme (Updated and Cleaned) === */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('../Img/bg.png') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  scroll-behavior: smooth;
+  position: relative;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  z-index: 1; /* lower than particles */
+}
+
+canvas#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* === Navbar === */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow: 0 2px 10px rgba(0, 255, 255, 0.15);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-right: 0.75rem;
+}
+
+.server-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #00ffff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #ffffff;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00ffff;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.85);
+    text-align: center;
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    padding: 1rem 0;
+  }
+}
+
+/* === Section Base === */
+section {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* === Welcome Section === */
+.welcome h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #00ffff, #ff00ff, #00ff88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: pulseGlow 3s infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(255,255,255,0.2);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255,255,255,0.4);
+  }
+}
+
+.slogan {
+  font-size: 1.3rem;
+  font-family: monospace;
+  color: #e0e0e0;
+  min-height: 2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #00ffff;
+  animation: blinkCursor 0.8s infinite step-end;
+}
+
+@keyframes blinkCursor {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.join-button {
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  color: black;
+  padding: 0.75rem 2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  margin-top: 1.5rem;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.join-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ffff;
+}
+
+/* === Section Headings and Text === */
+.about h2,
+.works h2,
+#contact h2 {
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #00ffff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about p,
+.works p,
+#contact p {
+  font-size: 1.2rem;
+  color: #ccc;
+  max-width: 800px;
+  margin-top: 1rem;
+}
+
+/* === Works Section === */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.2);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.4);
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #00ffff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card p {
+  color: #ccc;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card a {
+  display: inline-block;
+  background: #00ffff;
+  color: black;
+  padding: 0.5rem 1.25rem;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.card a:hover {
+  background: #00d9ff;
+}
+
+/* === Contact Section === */
+.contact {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 6rem 2rem;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+.contact h2 {
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #00ffff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact p {
+  color: #ccc;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  gap: 2rem;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-icon:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+  color: #00ffff;
+}
+
+
+/* === Reveal Animation === */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
