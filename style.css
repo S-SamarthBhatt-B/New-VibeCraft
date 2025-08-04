@@ -165,16 +165,9 @@ html {
   font-family: monospace;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  animation: vColorCycle 4s linear infinite, vPulse 2s ease-in-out infinite;
-  text-shadow: 0 0 6px #00ffff, 0 0 12px #00ffff;
-}
-
-@keyframes vColorCycle {
-  0%   { color: #00ffff; text-shadow: 0 0 5px #00ffff; }
-  25%  { color: #ff00ff; text-shadow: 0 0 5px #ff00ff; }
-  50%  { color: #00ff88; text-shadow: 0 0 5px #00ff88; }
-  75%  { color: #ff6600; text-shadow: 0 0 5px #ff6600; }
-  100% { color: #00ffff; text-shadow: 0 0 5px #00ffff; }
+  color: #ffffff;
+  text-shadow: 0 0 10px #ffffff;
+  animation: vPulse 2s ease-in-out infinite;
 }
 
 @keyframes vPulse {
