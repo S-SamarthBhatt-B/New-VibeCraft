@@ -70,6 +70,7 @@ canvas#bg-canvas {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-decoration: none;
+  cursor: none;
 }
 
 .nav-links {
@@ -85,6 +86,7 @@ canvas#bg-canvas {
   font-weight: 500;
   text-decoration: none;
   transition: color 0.3s ease;
+  cursor: none;
 }
 
 .nav-links a:hover {
