@@ -1,5 +1,13 @@
-/* Reset */
-body, html {
+/* Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  cursor: none !important;
+}
+
+body,
+html {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -10,14 +18,15 @@ body, html {
   cursor: none !important;
 }
 
-/* Main layout */
+/* Container */
 .main-container {
   position: relative;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
-/* Background image */
+/* Background */
 .background-img {
   position: absolute;
   inset: 0;
@@ -47,6 +56,7 @@ body, html {
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 2rem;
 }
 
 /* Title */
@@ -56,7 +66,6 @@ body, html {
   background: linear-gradient(90deg, #ffffff, #00ffff, #ff00ff);
   background-clip: text;
   -webkit-background-clip: text;
-  color: transparent;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
   animation: pulse 3s infinite ease-in-out;
@@ -74,19 +83,18 @@ body, html {
 
 /* Slogan */
 .slogan {
-  font-size: 1.5rem;
-  font-weight: 300;
+  font-size: 1.4rem;
+  font-family: monospace;
   color: #e0e0e0;
   min-height: 2rem;
-  font-family: monospace;
   white-space: nowrap;
-  border-right: 2px solid #00ffff;
   overflow: hidden;
+  border-right: 2px solid #00ffff;
   width: fit-content;
   margin: 0 auto 2rem;
 }
 
-/* Button */
+/* Explore Button */
 .explore-btn {
   padding: 0.75rem 2rem;
   font-size: 1.1rem;
@@ -109,19 +117,44 @@ body, html {
 }
 
 @keyframes gradientFlow {
-  0% {
-    background-position: 0% 50%;
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== Responsive Typography ===== */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
   }
-  50% {
-    background-position: 100% 50%;
+
+  .slogan {
+    font-size: 1.1rem;
+    border-right: 1px solid #00ffff;
   }
-  100% {
-    background-position: 0% 50%;
+
+  .explore-btn {
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
   }
 }
 
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
 
-/* V-shaped custom cursor */
+  .slogan {
+    font-size: 1rem;
+  }
+
+  .explore-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1.25rem;
+  }
+}
+
+/* === Custom Cursor === */
 .custom-v-cursor {
   position: fixed;
   top: 0;
@@ -173,6 +206,25 @@ body, html {
   }
 }
 
-*, *::before, *::after {
-  cursor: none !important;
+.click-ripple {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #00ffff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  animation: rippleWave 0.6s ease-out forwards;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+@keyframes rippleWave {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(5);
+  }
 }

@@ -1,20 +1,46 @@
-// === V Cursor Movement ===
+// ========== Custom V Cursor Setup ==========
+const cursor = document.getElementById("customV");
+const trailContainer = document.getElementById("trail-container");
+
 document.addEventListener("mousemove", (e) => {
-  const cursor = document.getElementById("customV");
-  if (cursor) {
-    cursor.style.left = `${e.clientX}px`;
-    cursor.style.top = `${e.clientY}px`;
-  }
+  const x = e.clientX;
+  const y = e.clientY;
 
-  // === Trail effect ===
-  const trail = document.createElement("div");
-  trail.className = "trail-dot";
-  trail.style.left = `${e.clientX}px`;
-  trail.style.top = `${e.clientY}px`;
+  // Move the main V cursor
+  cursor.style.left = `${x}px`;
+  cursor.style.top = `${y}px`;
 
-  document.body.appendChild(trail);
+  // Create trail dot
+  const dot = document.createElement("div");
+  dot.className = "trail-dot";
+  dot.style.left = `${x}px`;
+  dot.style.top = `${y}px`;
+  dot.style.backgroundColor = getTrailColor();
+  trailContainer.appendChild(dot);
 
+  // Remove after fade animation
   setTimeout(() => {
-    trail.remove();
+    trailContainer.removeChild(dot);
   }, 400);
 });
+
+// ========== Click Ripple ==========
+document.addEventListener("click", (e) => {
+  const ripple = document.createElement("div");
+  ripple.className = "click-ripple";
+  ripple.style.left = `${e.clientX}px`;
+  ripple.style.top = `${e.clientY}px`;
+  document.body.appendChild(ripple);
+
+  // Remove after animation ends
+  setTimeout(() => {
+    ripple.remove();
+  }, 600);
+});
+
+// ========== Rainbow Trail Colors ==========
+let hue = 0;
+function getTrailColor() {
+  hue = (hue + 10) % 360;
+  return `hsl(${hue}, 100%, 70%)`;
+}

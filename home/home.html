@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VibeCraft</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="icon" type="image/png" href="Img/logo.png" />
-  <link rel="icon" type="image/png" href="../Img/logo.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../Img/logo.png" />
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
+  <!-- CSS -->
   <link rel="stylesheet" href="home.css" />
 </head>
-
 <body>
 
-  <!-- Particle Canvas -->
+  <!-- Background Canvas -->
   <canvas id="bg-canvas"></canvas>
 
   <!-- Navbar -->
@@ -40,15 +42,13 @@
 
   <section class="about reveal" id="about">
     <h2>About VibeCraft</h2>
-    <p>VibeCraft is your space to explore creations in music, games, tools, and more. Celebrate and showcase your
-      journey.</p>
+    <p>VibeCraft is your space to explore creations in music, games, tools, and more. Celebrate and showcase your journey.</p>
   </section>
 
   <section class="works reveal" id="works">
     <h2>Explore Our Works</h2>
     <p>Projects that define our vibe.</p>
     <div class="card-container">
-      <!-- Example Card -->
       <div class="card">
         <h2>VibeCraft Discord Server</h2>
         <p>Join the VibeCraft community — a creative space for gaming, music, writing, and more.</p>
@@ -56,24 +56,23 @@
       </div>
       <div class="card">
         <h2>🪐 Solar System Project</h2>
-        <p>This is a fun music website I created to share my tracks</p>
+        <p>Explore a cosmic experience paired with sound and visual joy.</p>
         <a href="https://ss.vibecraft.sbs/" target="_blank">Explore Now</a>
       </div>
       <div class="card">
         <h2>🎵 Music Vibes</h2>
-        <p>Enjoy cool games developed by VibeCraft.</p>
+        <p>Listen to hand-crafted tracks straight from the studio.</p>
         <a href="https://songs.vibecraft.sbs/" target="_blank">Listen Now</a>
       </div>
       <div class="card">
         <h2>🔗 VibeCraft LinkNest</h2>
-        <p>A curated hub of useful links across Study, Entertainment, Development, Learning, and Practice — all
-          organized in one place.</p>
+        <p>Find resources across development, study, and entertainment.</p>
         <a href="https://linknest.vibecraft.sbs/" target="_blank">Explore Now</a>
       </div>
       <div class="card">
         <h2>🎮 VibeCraft Fun Zone</h2>
-        <p>This is a collection of cool and addictive games I made for everyone to enjoy!</p>
-        <a href="https://fun.vibecraft.sbs" target="_blank">Explore Now</a>
+        <p>Play cool, creative, and challenging games made for everyone.</p>
+        <a href="https://fun.vibecraft.sbs/" target="_blank">Explore Now</a>
       </div>
     </div>
   </section>
@@ -81,7 +80,6 @@
   <section class="contact" id="contact">
     <h2>Connect with VibeCraft</h2>
     <p>Have questions, ideas, or just want to vibe with us? Reach out!</p>
-
     <div class="contact-icons">
       <a href="mailto:support@vibecraft.sbs" target="_blank" class="contact-icon" title="Email">
         <i class="fas fa-envelope"></i>
@@ -98,15 +96,14 @@
     </div>
   </section>
 
+  <!-- Cursor V and Trail -->
+  <div class="custom-v-cursor" id="customV">V</div>
+  <div id="trail-container"></div>
 
   <!-- Scripts -->
   <script src="home.js"></script>
   <script src="particle-home.js"></script>
-
-  <div class="custom-v-cursor" id="customV">V</div>
-  <div id="trail-container"></div>
   <script src="../cursor/cursor.js"></script>
 
 </body>
-
 </html>

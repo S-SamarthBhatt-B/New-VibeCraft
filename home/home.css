@@ -1,5 +1,5 @@
-/* === VibeCraft Home Page Theme (Updated and Cleaned) === */
-body {
+/* === VibeCraft Home Page Theme (Updated and Cleaned with Cursor Fixes, Responsive) === */
+html, body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background: url('../Img/bg.png') no-repeat center center fixed;
@@ -9,7 +9,6 @@ body {
   position: relative;
   min-height: 100vh;
   cursor: none !important;
-
 }
 
 body::before {
@@ -18,7 +17,7 @@ body::before {
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(5px);
-  z-index: 1; /* lower than particles */
+  z-index: 1;
 }
 
 canvas#bg-canvas {
@@ -46,6 +45,7 @@ canvas#bg-canvas {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(0, 255, 255, 0.2);
   box-shadow: 0 2px 10px rgba(0, 255, 255, 0.15);
+  flex-wrap: wrap;
 }
 
 .logo-container {
@@ -76,6 +76,8 @@ canvas#bg-canvas {
   display: flex;
   gap: 2rem;
   list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .nav-links a {
@@ -119,7 +121,6 @@ canvas#bg-canvas {
   }
 }
 
-/* === Section Base === */
 section {
   min-height: 100vh;
   padding: 6rem 2rem;
@@ -132,7 +133,6 @@ section {
   text-align: center;
 }
 
-/* === Welcome Section === */
 .welcome h1 {
   font-size: 3.5rem;
   font-weight: 800;
@@ -177,7 +177,7 @@ section {
   margin-top: 1.5rem;
   text-decoration: none;
   transition: transform 0.3s, box-shadow 0.3s;
-  cursor: none;
+  cursor: none !important;
 }
 
 .join-button:hover {
@@ -185,26 +185,20 @@ section {
   box-shadow: 0 0 15px #00ffff;
 }
 
-/* === Section Headings and Text === */
-.about h2,
-.works h2,
-#contact h2 {
+.about h2, .works h2, #contact h2 {
   font-size: 2.5rem;
   background: linear-gradient(90deg, #00ffff, #ff00ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.about p,
-.works p,
-#contact p {
+.about p, .works p, #contact p {
   font-size: 1.2rem;
   color: #ccc;
   max-width: 800px;
   margin-top: 1rem;
 }
 
-/* === Works Section === */
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -252,14 +246,13 @@ section {
   font-weight: bold;
   text-decoration: none;
   transition: background 0.3s;
-  cursor: none;
+  cursor: none !important;
 }
 
 .card a:hover {
   background: #00d9ff;
 }
 
-/* === Contact Section === */
 .contact {
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(8px);
@@ -267,19 +260,6 @@ section {
   text-align: center;
   z-index: 1;
   position: relative;
-}
-
-.contact h2 {
-  font-size: 2.5rem;
-  background: linear-gradient(90deg, #00ffff, #ff00ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.contact p {
-  color: #ccc;
-  font-size: 1.2rem;
-  margin-top: 1rem;
 }
 
 .contact-icons {
@@ -299,7 +279,7 @@ section {
   backdrop-filter: blur(6px);
   box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
   transition: transform 0.3s, box-shadow 0.3s;
-  cursor: none;
+  cursor: none !important;
 }
 
 .contact-icon:hover {
@@ -308,8 +288,6 @@ section {
   color: #00ffff;
 }
 
-
-/* === Reveal Animation === */
 .reveal {
   opacity: 0;
   transform: translateY(50px);
@@ -321,8 +299,6 @@ section {
   transform: translateY(0);
 }
 
-
-/* V-shaped custom cursor */
 .custom-v-cursor {
   position: fixed;
   top: 0;
@@ -374,6 +350,53 @@ section {
   }
 }
 
-*, *::before, *::after {
-  cursor: none !important;
+.click-ripple {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #00ffff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  animation: rippleWave 0.6s ease-out forwards;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+@keyframes rippleWave {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(5);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .welcome h1 {
+    font-size: 2.2rem;
+  }
+  .slogan {
+    font-size: 1rem;
+  }
+  .join-button {
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+  }
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  .nav-links {
+    gap: 1rem;
+    flex-direction: column;
+  }
+  section {
+    padding: 5rem 1rem;
+  }
+  .card-container {
+    grid-template-columns: 1fr;
+  }
 }
